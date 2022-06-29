@@ -511,14 +511,23 @@ export class DataForm {
     errorItem.itemCode = "";
 
     this.data.items.push(item);
-    this.error.items.push(errorItem);
+console.log(this.error)
+    if(this.error.items){
+      this.error.items.push(errorItem);
+    }
+    else{
+      this.error.items=[];
+      this.error.items.push(errorItem);
+    }
+
     this.sumRow(item);
   }
 
   removeItem(item) {
     var itemIndex = this.data.items.indexOf(item);
     this.data.items.splice(itemIndex, 1);
-    this.error.items.splice(itemIndex, 1);
+    if(this.error)
+      this.error.items.splice(itemIndex, 1);
     this.sumTotal();
     //this.refreshPromo(-1);
   }
