@@ -116,10 +116,14 @@
             </table>-->
         <table class="table table-bordered">
             <tr repeat.for="data of detailData">
-                <td class="text-left">
+                <td class="text-left" if.bind="data.bankCard!='Cash'">
                     ${data.tanggal} <br/> EDC : ${data.bank} <br/> Kartu : ${data.bankCard} <br/> Debit Card : ${data.debitCardNominal.toLocaleString()}
                     <br/> Credit Card : ${data.creditCardNominal.toLocaleString()} <br/> Credit Visa : ${data.creditVisaNominal.toLocaleString()}
                     <br/> Credit Master : ${data.creditMasterNominal.toLocaleString()} <br/>
+                </td>
+                <td class="text-left" if.bind="data.bankCard=='Cash'">
+                    ${data.tanggal} <br/> Pembayaran : ${data.bank} 
+                    <br/> Nominal Cash : ${data.cashNominal.toLocaleString()} <br/>
                 </td>
             </tr>
         </table>
