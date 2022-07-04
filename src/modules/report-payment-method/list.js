@@ -246,14 +246,14 @@ export class List {
                                     itemData.bank = data.BankName;
                                 }
                                 else
-                                    itemData.bank = "Kartu tidak Teridentifikasi";
+                                    itemData.bank = "Cash";
 
                                // if (data.BankCardName != null && data.salesDetail.bankCard._active != null && data.salesDetail.bankCard._active !== false) {
                                 if (data.BankCard != null ) {
                                     itemData.bankCard = data.BankCard;
                                 }
                                 else
-                                    itemData.bankCard = "Kartu tidak Teridentifikasi";
+                                    itemData.bankCard = "Cash";
 
                                 if (data.CardTypeName == "Mastercard") {
                                     itemData.debitNominalLainnya = 0;
@@ -446,6 +446,7 @@ export class List {
                     for (var resultdata of detailData) {
                         if (resultdata.tanggal == tanggal && resultdata.bank == item.bank && resultdata.bankCard == item.bankCard) {
                             isAny = true;
+                            resultdata.cashNominal += parseInt(item.cashNominal);
                             resultdata.debitCardNominal += parseInt(item.debitNominalLainnya);
                             resultdata.creditCardNominal += parseInt(item.creditNominalLainnya);
                             resultdata.creditVisaNominal += parseInt(item.creditVisaNominal);
@@ -458,6 +459,7 @@ export class List {
                         row.tanggal = tanggal
                         row.bank = item.bank;
                         row.bankCard = item.bankCard;
+                        row.cashNominal = parseInt(item.cashNominal);
                         row.debitCardNominal = parseInt(item.debitNominalLainnya);
                         row.creditCardNominal = parseInt(item.creditNominalLainnya);
                         row.creditVisaNominal = parseInt(item.creditVisaNominal);
@@ -467,13 +469,14 @@ export class List {
                 }
             }
         }
-        this.reportHTMLDetail = "Payment Details - Card";
+        this.reportHTMLDetail = "Payment Details";
         this.reportHTMLDetail += "    <table class='table table-bordered'>";
         this.reportHTMLDetail += "        <thead>";
         this.reportHTMLDetail += "            <tr style='background-color:#282828; color:#ffffff;'>";
         this.reportHTMLDetail += "                <th width='300px'>Tanggal</th>";
         this.reportHTMLDetail += "                <th>Bank (EDC)</th>";
         this.reportHTMLDetail += "                <th>Bank (Kartu)</th>";
+        this.reportHTMLDetail += "                <th>Cash (nominal)</th>";
         this.reportHTMLDetail += "                <th>Debit Card (nominal)</th>";
         this.reportHTMLDetail += "                <th>Credit Card (nominal)</th>";
         this.reportHTMLDetail += "                <th>Credit Visa (nominal)</th>";
@@ -486,6 +489,7 @@ export class List {
             this.reportHTMLDetail += "  <td>" + resultdata.tanggal + "</td>";
             this.reportHTMLDetail += "  <td>" + resultdata.bank + "</td>";
             this.reportHTMLDetail += "  <td>" + resultdata.bankCard + "</td>";
+            this.reportHTMLDetail += "  <td>" + resultdata.cashNominal.toLocaleString()  + "</td>";
             this.reportHTMLDetail += "  <td>" + resultdata.debitCardNominal.toLocaleString() + "</td>";
             this.reportHTMLDetail += "  <td>" + resultdata.creditCardNominal.toLocaleString() + "</td>";
             this.reportHTMLDetail += "  <td>" + resultdata.creditVisaNominal.toLocaleString() + "</td>";
@@ -501,6 +505,7 @@ export class List {
         this.reportHTMLDetail += "          <td>Total</td>";
         this.reportHTMLDetail += "          <td></td>";
         this.reportHTMLDetail += "          <td></td>";
+        this.reportHTMLDetail += "          <td style='background-color:#48cbe2;'>" + this.totalCash.toLocaleString() + "</td>";
         this.reportHTMLDetail += "          <td style='background-color:#48cbe2;'>" + this.totalTempDebit.toLocaleString() + "</td>";
         this.reportHTMLDetail += "          <td style='background-color:#48cbe2;'>" + this.totalTempCredit.toLocaleString() + "</td>";
         this.reportHTMLDetail += "          <td style='background-color:#48cbe2;'>" + this.totalTempCreditVisa.toLocaleString() + "</td>";
