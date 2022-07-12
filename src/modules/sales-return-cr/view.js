@@ -319,7 +319,7 @@ export class View {
         this.printStruk += "        <td colspan='3' class='text-left'> " + this.data.store.Phone + " </td>";
         this.printStruk += "    </tr>";
         this.printStruk += "    <tr>";
-        this.printStruk += "        <td colspan='3' class='text-left'> No. NPWP: 31.579.110.3-532.000 </td>";
+        this.printStruk += "        <td colspan='3' class='text-left'> No. NPWP: 71.157.388.1-451.000 </td>";
         this.printStruk += "    </tr>";
         this.printStruk += "    <tr>";
         this.printStruk += "        <td colspan='3' class='text-left'> =============================== </td>";
