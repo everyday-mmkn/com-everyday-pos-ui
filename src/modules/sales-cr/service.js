@@ -23,8 +23,8 @@ export class Service extends RestService {
     // this.http = http;
   }
 
-  search(storeId, keyword) {
-    var endpoint = `${serviceUriStore}/${storeId}?keyword=${keyword}`;
+  search(storeId, keyword, info) {
+    var endpoint = `${serviceUriStore}/${storeId}?keyword=${keyword}&&filter=${info}`;
     return super.get(endpoint);
   }
 
