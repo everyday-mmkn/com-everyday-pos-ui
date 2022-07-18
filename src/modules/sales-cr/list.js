@@ -24,7 +24,12 @@ export class List {
     }
     
     getData() {
-        this.service.search(this.storecode, this.filter)
+
+        var args = JSON.stringify({
+                isVoid : false
+            })
+    
+        this.service.search(this.storecode, this.filter, args)
             .then(data => { 
                 this.data = data;
                 for(var i of this.data) {
