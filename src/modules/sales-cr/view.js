@@ -270,15 +270,46 @@ export class View {
         this.printStruk += "    <tr>";
         this.printStruk += "        <td colspan='3' class='text-left'> PT. TABOR ANDALAN RETAILINDO </td>";
         this.printStruk += "    </tr>";
-        this.printStruk += "    <tr>";
-        this.printStruk += "        <td colspan='3' class='text-left'> EQUITY TOWER 15C JL JEND SUDIRMAN KAV. 52-53 </td>";
-        this.printStruk += "    </tr>";
-        this.printStruk += "    <tr>";
-        this.printStruk += "        <td colspan='3' class='text-left'> SENAYAN KEBAYORAN BARU </td>";
-        this.printStruk += "    </tr>";
-        this.printStruk += "    <tr>";
-        this.printStruk += "        <td colspan='3' class='text-left'> JAKARTA SELATAN DKI JAKARTA </td>";
-        this.printStruk += "    </tr>";
+        if(this.data.store.Name==="BY THE SEA"){
+            this.printStruk += "    <tr>";
+            this.printStruk += "        <td colspan='3' class='text-left'> EVERYDAY " + this.data.store.Name + " </td>";
+            this.printStruk += "    </tr>";
+            this.printStruk += "    <tr>";
+            this.printStruk += "        <td colspan='3' class='text-left'> BY THE SEA, PANTAI INDAH KAPUK UNIT A-50 </td>";
+            this.printStruk += "    </tr>";
+            this.printStruk += "    <tr>";
+            this.printStruk += "        <td colspan='3' class='text-left'> JALAN SANDIAGA UNO, 14460 GOLF ISLAND  </td>";
+            this.printStruk += "    </tr>";
+            this.printStruk += "    <tr>";
+            this.printStruk += "        <td colspan='3' class='text-left'> KAWASAN PANTAI MAJU INDAH KAPUK </td>";
+            this.printStruk += "    </tr>";
+        }
+        else if(this.data.store.Name==="SENAYAN CITY"){
+            this.printStruk += "    <tr>";
+            this.printStruk += "        <td colspan='3' class='text-left'> EVERYDAY " + this.data.store.Name + " </td>";
+            this.printStruk += "    </tr>";
+            this.printStruk += "    <tr>";
+            this.printStruk += "        <td colspan='3' class='text-left'> SENAYAN CITY </td>";
+            this.printStruk += "    </tr>";
+            this.printStruk += "    <tr>";
+            this.printStruk += "        <td colspan='3' class='text-left'> JL. ASIA AFRIKA NO.LOT 19, GELORA, KECAMATAN TANAH ABANG  </td>";
+            this.printStruk += "    </tr>";
+            this.printStruk += "    <tr>";
+            this.printStruk += "        <td colspan='3' class='text-left'> KOTA JAKARTA PUSAT, DAERAH KHUSUS IBUKOTA JAKARTA 10270 LANTAI 2 </td>";
+            this.printStruk += "    </tr>";
+        }
+        else{
+            this.printStruk += "    <tr>";
+            this.printStruk += "        <td colspan='3' class='text-left'> EQUITY TOWER 15C JL JEND SUDIRMAN KAV. 52-53 </td>";
+            this.printStruk += "    </tr>";
+            this.printStruk += "    <tr>";
+            this.printStruk += "        <td colspan='3' class='text-left'> SENAYAN KEBAYORAN BARU </td>";
+            this.printStruk += "    </tr>";
+            this.printStruk += "    <tr>";
+            this.printStruk += "        <td colspan='3' class='text-left'> JAKARTA SELATAN DKI JAKARTA </td>";
+            this.printStruk += "    </tr>";
+        }
+        
         this.printStruk += "    <tr>";
         this.printStruk += "        <td colspan='3' class='text-left'> No. NPWP: 71.157.388.1-451.000 </td>";
         this.printStruk += "    </tr>";
